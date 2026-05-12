@@ -82,7 +82,26 @@ HTTPS_PROXY=http://127.0.0.1:7897 HTTP_PROXY=http://127.0.0.1:7897 \
 https://github.com/BigPizzaV3/CodexPlusPlus/compare/main...SX2000CN:CodexPlusPlus:pr/<分支名>?expand=1
 ```
 
-### 7. 切回 main
+### 7. 清理旧的 PR 临时分支
+
+最多保留最近 3 个 PR 临时分支，超出的从本地和远程一并删除：
+
+```bash
+# 查看现有 PR 分支（本地 + 远程）
+git branch --list 'pr/*'
+git branch -r --list 'origin/pr/*'
+
+# 删除本地旧分支
+git branch -D pr/<旧分支名>
+
+# 删除远程旧分支（需要代理）
+HTTPS_PROXY=http://127.0.0.1:7897 HTTP_PROXY=http://127.0.0.1:7897 \
+  git push origin --delete pr/<旧分支名>
+```
+
+规则：每次创建新 PR 分支后，检查是否超过 3 个，如果超过则删除最早的。
+
+### 8. 切回 main
 
 ```bash
 git switch main
@@ -93,4 +112,4 @@ git switch main
 - 本机 GitHub 直连超时，所有 git 远程操作需要加 `HTTPS_PROXY=http://127.0.0.1:7897`。
 - 上游仓库是 `BigPizzaV3/CodexPlusPlus`，fork 是 `SX2000CN/CodexPlusPlus`。
 - PR 分支命名建议：`pr/<功能简述>`，如 `pr/watcher-reliability`。
-- 提交完 PR 分支后可以删除本地分支：`git branch -D pr/<分支名>`。
+- PR 临时分支最多保留 3 个（本地 + 远程），超出的必须清理。
