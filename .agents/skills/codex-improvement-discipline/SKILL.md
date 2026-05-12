@@ -1,12 +1,12 @@
 ---
 name: codex-improvement-discipline
-description: Codex++ 改进工作纪律：修改核心组件时的验证、提交和 PR 流程
+description: 向上游提 PR 流程：从含私有 AI 配置的 fork 创建纯净分支提交到原作者仓库
 metadata:
   type: project-skill
 ---
 
-# Codex++ 改进工作纪律
+# 向上游提 PR 流程
 
 事实源：`docs/ai/skills/codex-improvement-discipline/SKILL.md`
 
-执行本 skill 前，先读取事实源获取完整规则。
+执行本 skill 前，先读取事实源获取完整操作步骤。

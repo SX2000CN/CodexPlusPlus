@@ -4,7 +4,7 @@
 
 | Skill | 状态 | 事实源 | Claude Code 入口 | Codex 入口 | 备注 |
 |---|---|---|---|---|---|
-| codex-improvement-discipline | active | `docs/ai/skills/codex-improvement-discipline/SKILL.md` | `.claude/skills/codex-improvement-discipline/SKILL.md` | `.agents/skills/codex-improvement-discipline/SKILL.md` | Codex++ 改进工作纪律 |
+| codex-improvement-discipline | active | `docs/ai/skills/codex-improvement-discipline/SKILL.md` | `.claude/skills/codex-improvement-discipline/SKILL.md` | `.agents/skills/codex-improvement-discipline/SKILL.md` | 向上游提 PR 流程（排除本地 AI 配置） |
 
 ## 状态说明
 
