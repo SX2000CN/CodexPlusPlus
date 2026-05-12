@@ -1,11 +1,10 @@
 # 项目级 Skills 清单
 
-最后更新时间：2026-05-11
-
-当前没有已创建的项目级 skill。
+最后更新时间：2026-05-12
 
 | Skill | 状态 | 事实源 | Claude Code 入口 | Codex 入口 | 备注 |
 |---|---|---|---|---|---|
+| codex-improvement-discipline | active | `docs/ai/skills/codex-improvement-discipline/SKILL.md` | `.claude/skills/codex-improvement-discipline/SKILL.md` | `.agents/skills/codex-improvement-discipline/SKILL.md` | Codex++ 改进工作纪律 |
 
 ## 状态说明
 
