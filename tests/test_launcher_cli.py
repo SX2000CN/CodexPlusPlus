@@ -195,9 +195,10 @@ def test_launch_retries_injection_until_codex_page_is_ready(monkeypatch, tmp_pat
         attempts.append(args)
         if len(attempts) == 1:
             raise RuntimeError("CDP page not ready")
-        return {"result": {}}
+        return launcher.cdp.InjectionResult(websocket_url="ws://page", bridge_socket=None, result={"result": {}})
 
     monkeypatch.setattr(launcher, "inject_file", inject_after_retry)
+    monkeypatch.setattr(launcher, "evaluate_user_scripts", lambda websocket_url, script: None)
     monkeypatch.setattr(launcher.time, "sleep", lambda seconds: None)
 
     server, proc = launcher.launch_and_inject(None, None, tmp_path / "backups", 9229, 57321)
@@ -446,3 +447,12 @@ def test_wait_for_shutdown_waits_for_popen_like_process():
     assert proc.waited is True
     assert server.shutdown_called is True
     assert server.server_close_called is True
+
+
+def test_is_macos_codex_running_uses_ps_comm(monkeypatch):
+    class Result:
+        stdout = "123 /Applications/Codex.app/Contents/MacOS/Codex --remote-debugging-port=9229\n456 /usr/bin/other\n"
+
+    monkeypatch.setattr(cli.subprocess, "run", lambda *args, **kwargs: Result())
+
+    assert cli.is_macos_codex_running() is True
