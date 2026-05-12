@@ -5,6 +5,7 @@
 | Skill | 状态 | 事实源 | Claude Code 入口 | Codex 入口 | 备注 |
 |---|---|---|---|---|---|
 | codex-improvement-discipline | active | `docs/ai/skills/codex-improvement-discipline/SKILL.md` | `.claude/skills/codex-improvement-discipline/SKILL.md` | `.agents/skills/codex-improvement-discipline/SKILL.md` | 向上游提 PR 流程（排除本地 AI 配置） |
+| upstream-pull | active | `docs/ai/skills/upstream-pull/SKILL.md` | `.claude/skills/upstream-pull/SKILL.md` | `.agents/skills/upstream-pull/SKILL.md` | 从上游拉取最新代码（处理 AI 配置冲突） |
 
 ## 状态说明
 
